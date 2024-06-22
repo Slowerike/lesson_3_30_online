@@ -1,5 +1,5 @@
 import java.util.Arrays;
-import java.util.Scanner;
+
 
 public class Forth_Task {
     public static int ascOrder(int number) {
@@ -16,7 +16,7 @@ public class Forth_Task {
             }
             number /= 10;
         }
-        if (returnNum == 0 | lengthNum == 1 | (lengthNum != counter)) {
+        if ((Math.abs(returnNum) >= 0 & Math.abs(returnNum) <= 9) | lengthNum == 1 | (lengthNum != counter)) {
             return 0;
         } else {
             return returnNum;
@@ -25,7 +25,7 @@ public class Forth_Task {
 
     public static void main(String[] args) {
 
-        int[] digits = new int[]{1, 23, 454, 454, 34234, 342342, 6789,123456};
+        int[] digits = new int[]{-1, 123, 454, 454, 34234, 342342, 6789, 123456, 1, 0, 2, 4};
         System.out.println("Массив:" + Arrays.toString(digits));
         String printLine = " ";
         for (int digit : digits) {

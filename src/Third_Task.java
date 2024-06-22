@@ -20,15 +20,18 @@ public class Third_Task {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите длину массива: ");
         int lengthMassive = scanner.nextInt();
-        int[] digits = First_Task.randomNumberMassive(lengthMassive);
-        //int[] digits=new int[]{1,23,454,454,34234,342342};
-        System.out.println(Arrays.toString(digits));
+        //int[] digits = First_Task.randomNumberMassive(lengthMassive);
+        int[] digits = new int[]{1000, 23, 454, 454, 34234, 342342};
+        // System.out.println(Arrays.toString(digits));
+
         int[] numbersLength = new int[digits.length];
         for (int x = 0; x < digits.length; x++) {
             numbersLength[x] = getNumberLength(digits[x]);
         }
+
         int maxNumber = numbersLength[0];
         int minNumber = numbersLength[0];
+
         for (int i = 1; i < numbersLength.length; i++) {
             if (numbersLength[i] > maxNumber) {
                 maxNumber = numbersLength[i];
@@ -37,13 +40,13 @@ public class Third_Task {
                 minNumber = numbersLength[i];
             }
         }
-        String minNumberString="";
-        String maxNumberString="";
-        for (int x=0;x<digits.length ;x++) {
+        String minNumberString = "";
+        String maxNumberString = "";
+        for (int x = 0; x < digits.length; x++) {
             if (maxNumber == numbersLength[x]) {
-                maxNumberString+=digits[x] + " ";
+                maxNumberString += digits[x] + " ";
             } else if (minNumber == numbersLength[x]) {
-                minNumberString+=digits[x] + " ";
+                minNumberString += digits[x] + " ";
             }
         }
         System.out.println("Числа с максимальной длиной: " + maxNumberString);
