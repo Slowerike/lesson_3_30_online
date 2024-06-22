@@ -3,29 +3,28 @@ import java.util.Arrays;
 
 public class Forth_Task {
     public static int ascOrder(int number) {
-        int counter = 1;
+        String numberStr = Integer.toString(number);
         int lengthNum = 1;
-        int returnNum = number;
-        number = Math.abs(number);
-        while (number > 0) {
-            lengthNum++;
-            int endNum = number % 10;
-            number /= 10;
-            if (endNum - 1 == number % 10) {
-                counter++;
+        int firstDigit = numberStr.charAt(0) - '0';
+        // Итерируемся по символам строки и выводим их
+        for (int i = 1; i < numberStr.length(); i++) {
+            int digit = numberStr.charAt(i) - '0';
+            if (digit == firstDigit + 1) {
+                firstDigit = digit;
+                lengthNum++;
+            } else {
+                break;
             }
-            number /= 10;
         }
-        if ((Math.abs(returnNum) >= 0 & Math.abs(returnNum) <= 9) | lengthNum == 1 | (lengthNum != counter)) {
+        if ((Math.abs(number) >= 0 & Math.abs(number) <= 9) | lengthNum == 1 | (lengthNum != numberStr.length())) {
             return 0;
         } else {
-            return returnNum;
+            return number;
         }
     }
 
     public static void main(String[] args) {
-
-        int[] digits = new int[]{-1, 123, 454, 454, 34234, 342342, 6789, 123456, 1, 0, 2, 4};
+        int[] digits = new int[]{895612, 454, 454, 34234, 342342, 6789, 123456, 1, 0, 2, 4};
         System.out.println("Массив:" + Arrays.toString(digits));
         String printLine = " ";
         for (int digit : digits) {
